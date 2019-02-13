@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "80a52402-7e0f-4eb6-8492-ec21907bba7c",
+		"name": "EX10801199711352",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3001/api/empresa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3001/api/empresa",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"empresa"
+					]
+				},
+				"description": "Metodo Get"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/api/empresa/new",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rtn",
+							"value": "525SFGHJ5446556",
+							"type": "text"
+						},
+						{
+							"key": "empresa",
+							"value": "Laburiente",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "lauriente@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "rubro",
+							"value": "Desarrollo de Paginas Web",
+							"type": "text"
+						},
+						{
+							"key": "direccion",
+							"value": "Altos del Toncontin ",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "22359822",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/api/empresa/new",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"empresa",
+						"new"
+					]
+				},
+				"description": "Metodo Post"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/api/empresa/change/72355730-18fd-49c7-8740-a3490d9766ef",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "correo",
+							"value": "powersoft12@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "telefono",
+							"value": "22239874",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/api/empresa/change/72355730-18fd-49c7-8740-a3490d9766ef",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"empresa",
+						"change",
+						"72355730-18fd-49c7-8740-a3490d9766ef"
+					]
+				},
+				"description": "Metodo Put"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/api/empresa/delete/3bdd9808-213b-4063-b429-81608e3f7f53",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3001/api/empresa/delete/3bdd9808-213b-4063-b429-81608e3f7f53",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"empresa",
+						"delete",
+						"3bdd9808-213b-4063-b429-81608e3f7f53"
+					]
+				},
+				"description": "Metodo Delete"
+			},
+			"response": []
+		}
+	]
+}
