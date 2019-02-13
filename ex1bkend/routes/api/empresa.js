@@ -6,7 +6,6 @@ var fileModel = require('./jsonmodel');
 var info = null;
 
 var empresaInfo={
-    '_id' : '',
     'rtn' : '',
     'empresa' : '',
     'rubro' : '',
@@ -33,7 +32,7 @@ router.get('/', function(req,res,next){
 
 router.post('/new', function(req,res,next){
     var _empresaInfo = Object.assign({},empresaInfo,req.body);
-    _empresaInfo._id = uuidv4();
+    _empresaInfo.rtn = uuidv4();
 
     if(!info){
         info =[];
@@ -48,6 +47,52 @@ router.post('/new', function(req,res,next){
     });
 });
 
+router.put('/change/:rtn',function(req,res,next){
+    var rtn = req.params.rtn;
+    var _empresaChange= req.body;
+    var _empresaUpdated = null;
+    var newInfo = info.map(
+        function(doc,i){
+            if(doc.rtn == rtn){
+                _empresaUpdated = Object.assign(
+                    {},
+                    doc,
+                    _empresaChange
+                );
+                return _empresaUpdated
+            }
+            return doc;
+        }
+    );
+    info = newInfo;
+    fileModel.write(info, function(err){
+        if(err){
+            console.log(err);
+            return res.status(500).json({'error':'It´s Dead'});
+        }
+        return res.status(200).json(_empresaUpdated);
+    });
+});
+
+router.delete('/delete/:rtn', function(req,res,next){
+        var rtn = req.params.rtn;
+        var newInfo = info.filter(
+            function(doc,i){
+                if(doc.rtn == rtn){
+                    return false;
+                }
+                return true;
+            }
+        );
+        info = newInfo;
+        fileModel.write(info, function(err){
+            if(err){
+                console.log(err);
+                return res.status(500).json({'error':'It´s Dead'});
+            }
+            return res.status(200).json({'Se elimino':rtn});
+        });
+});
 
 fileModel.read(function(err , fileinfo){
     if(err){
