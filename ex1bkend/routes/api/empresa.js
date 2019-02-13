@@ -5,7 +5,7 @@ var uuidv4 = require('uuid/v4');
 var fileModel = require('./jsonmodel');
 var info = null;
 
-var videoInfo={
+var empresaInfo={
     '_id' : '',
     'rtn' : '',
     'empresa' : '',
@@ -30,6 +30,23 @@ router.get('/', function(req,res,next){
     }
 });
 
+
+router.post('/new', function(req,res,next){
+    var _empresaInfo = Object.assign({},empresaInfo,req.body);
+    _empresaInfo._id = uuidv4();
+
+    if(!info){
+        info =[];
+    }
+    info.push(_empresaInfo);
+    fileModel.write(info, function(err){
+        if(err){
+            console.log(err);
+            return res.status(500).json({'error':'It´s Dead'});
+        }
+        return res.status(200).json(_empresaInfo);
+    });
+});
 
 
 fileModel.read(function(err , fileinfo){
